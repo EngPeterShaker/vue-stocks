@@ -1,28 +1,52 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+
+     <v-tabs
+      fixed-tabs
+      background-color="indigo"
+      dark
+    >
+      <v-tab to='/stocks'>
+        Stocks
+      </v-tab>
+      <v-tab to='/fx'>
+       FX
+      </v-tab>
+
+    </v-tabs>
+    </v-app-bar>
+
+    <v-content>
+     <router-view></router-view>
+      <!-- <HelloWorld/> -->
+      <!-- <Main/> -->
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld';
+  import Vuetify from "vuetify";
+// import Main from './components/Main';
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+ vuetify: new Vuetify(),
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+  components: {
+    // Main,
+    // HelloWorld,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>

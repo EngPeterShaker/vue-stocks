@@ -1,0 +1,37 @@
+<template>
+
+<v-card
+
+    class="mx-auto"
+    max-width="344"
+    outlined
+  >
+
+
+     <v-row align="center">
+        <v-col class="display-3" cols="6">
+            <p class="close_text">{{item['4. close']}}</p>
+        </v-col>
+        <v-col class="display-3" cols="6">
+           <v-list-item three-line >
+      <v-list-item-content>
+        <!-- <div class="overline mb-4">{{itemKey}}</div> -->
+
+        <!-- <v-list-item-title class="headline mb-1">{{itemKey.split(' ')[1]}}</v-list-item-title> -->
+        <v-list-item-subtitle>open: {{item['1. open']}}</v-list-item-subtitle>
+       <v-list-item-subtitle>high: {{item['2. high']}}</v-list-item-subtitle>
+        <v-list-item-subtitle>low: {{item['3. low']}}</v-list-item-subtitle>
+        <v-list-item-subtitle>close: {{item['4. close']}}</v-list-item-subtitle>
+      </v-list-item-content>
+    </v-list-item>
+        </v-col>
+     </v-row>
+
+  </v-card>
+</template>
+
+<script>
+export default {
+name : 'Card',
+}
+</script>
