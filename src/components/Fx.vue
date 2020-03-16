@@ -2,8 +2,7 @@
   <div>
     <h1>{{ this.duration }}</h1>
     <v-container class="grey lighten-5">
-      <v-row no-gutters>
-        <v-col class="wrapper">
+      <v-row class="wrapper">
           <v-card
             v-for="(item, itemKey) in FxData"
             class="mx-auto my-4 px-4"
@@ -35,12 +34,11 @@
               </v-col>
             </v-row>
           </v-card>
-        </v-col>
-        <v-col>
+      </v-row>
+         <v-row>
+        <div class="chart-wrapper">
           <highcharts :options="chartOptions"></highcharts>
-
-          <!-- <v-card class="pa-2" outlined tile> </v-card> -->
-        </v-col>
+        </div>
       </v-row>
     </v-container>
   </div>

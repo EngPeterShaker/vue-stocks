@@ -2,44 +2,44 @@
   <div>
     <h1>{{ this.duration }}</h1>
     <v-container class="grey lighten-5">
+      <v-row class="wrapper">
+        <v-card
+          v-for="(item, itemKey) in stocksData"
+          class="mx-auto my-4 px-4"
+          max-width="344"
+          outlined
+          :key="itemKey"
+        >
+          <v-row align="center">
+            <v-col class="display-3" cols="6">
+              <p class="close_text">{{ item["4. close"] }}</p>
+            </v-col>
+            <v-col class="display-3" cols="6">
+              <v-list-item three-line>
+                <v-list-item-content>
+                  <v-list-item-subtitle
+                    >open: {{ item["1. open"] }}</v-list-item-subtitle
+                  >
+                  <v-list-item-subtitle
+                    >high: {{ item["2. high"] }}</v-list-item-subtitle
+                  >
+                  <v-list-item-subtitle
+                    >low: {{ item["3. low"] }}</v-list-item-subtitle
+                  >
+                  <v-list-item-subtitle
+                    >close: {{ item["4. close"] }}</v-list-item-subtitle
+                  >
+                </v-list-item-content>
+              </v-list-item>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-row>
+
       <v-row>
-        <v-col class="wrapper">
-          <v-card
-            v-for="(item, itemKey) in stocksData"
-            class="mx-auto my-4 px-4"
-            max-width="344"
-            outlined
-            :key="itemKey"
-          >
-            <v-row align="center">
-              <v-col class="display-3" cols="6">
-                <p class="close_text">{{ item["4. close"] }}</p>
-              </v-col>
-              <v-col class="display-3" cols="6">
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <v-list-item-subtitle
-                      >open: {{ item["1. open"] }}</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >high: {{ item["2. high"] }}</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >low: {{ item["3. low"] }}</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >close: {{ item["4. close"] }}</v-list-item-subtitle
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-col>
-        <v-col>
+        <div class="chart-wrapper">
           <highcharts :options="chartOptions"></highcharts>
-          <!-- <v-card class="pa-2" outlined tile> </v-card> -->
-        </v-col>
+        </div>
       </v-row>
     </v-container>
   </div>
@@ -53,17 +53,6 @@ export default {
   data: function() {
     return {
       duration: "Time Series (1min)"
-      // chartOptions: {
-      //   chart: {
-      //     type: 'spline'
-      //   },
-      //   title: {
-      //     text:  "Stocks Time Series (1min)"
-      //   },
-      //   series: [{
-      //     data: [10, 0, 8, 2, 6, 4, 5, 5]
-      //   }]
-      // },
     };
   },
   created() {
@@ -93,7 +82,7 @@ export default {
         },
         xAxis: {
           categories,
-          label : 'fx'
+          label: "fx"
         },
         title: {
           text: this.duration
@@ -116,7 +105,18 @@ export default {
   font-size: 32px;
 }
 .wrapper {
-  max-height: 100vh;
+  max-height: 80vh;
   overflow-y: scroll;
+}
+.chart-wrapper {
+  width: 100% !important;
+  position: relative;
+    border: 1px solid;
+  padding: 10px;
+  margin-top: 2em;
+  box-shadow: 5px 10px 8px 10px #888888;
+}
+.highcharts-container {
+  width: 100% !important;
 }
 </style>
