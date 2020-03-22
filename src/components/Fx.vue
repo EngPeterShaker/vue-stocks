@@ -3,39 +3,9 @@
     <h1>{{ this.duration }}</h1>
     <v-container class="grey lighten-5">
       <v-row class="wrapper">
-          <v-card
-            v-for="(item, itemKey) in FxData"
-            class="mx-auto my-4 px-4"
-            max-width="344"
-            outlined
-            :key="itemKey"
-          >
-            <v-row align="center">
-              <v-col class="display-3" cols="6">
-                <p class="close_text">{{ item["4. close"] }}</p>
-              </v-col>
-              <v-col class="display-3" cols="6">
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <v-list-item-subtitle
-                      >open: {{ item["1. open"] }}</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >high: {{ item["2. high"] }}</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >low: {{ item["3. low"] }}</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >close: {{ item["4. close"] }}</v-list-item-subtitle
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-              </v-col>
-            </v-row>
-          </v-card>
+        <Card v-for="(item, itemKey) in FxData" :item="item" :key="itemKey" />
       </v-row>
-         <v-row>
+      <v-row>
         <div class="chart-wrapper">
           <highcharts :options="chartOptions"></highcharts>
         </div>
@@ -45,6 +15,7 @@
 </template>
 <script>
 import { Chart } from "highcharts-vue";
+import Card from "./Card";
 
 // import axios from "axios";
 export default {
@@ -88,7 +59,8 @@ export default {
   },
 
   components: {
-    highcharts: Chart
+    highcharts: Chart,
+    Card
   }
 };
 </script>
