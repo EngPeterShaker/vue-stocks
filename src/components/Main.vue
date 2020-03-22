@@ -33,6 +33,3 @@ name : 'Main',
 
 }
 </script>
-<style scoped>
-
-</style>

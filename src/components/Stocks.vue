@@ -3,9 +3,7 @@
     <h1>{{ this.duration }}</h1>
     <v-container class="grey lighten-5">
       <v-row class="wrapper">
-        <Card v-for="(item, itemKey) in stocksData"
-          :item='item'
-          :key="itemKey"/>
+        <Card v-for="(item, itemKey) in stocksData" :item="item" :key="itemKey" />
       </v-row>
 
       <v-row>
@@ -74,9 +72,15 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
 .close_text {
   font-size: 32px;
+  &.redText {
+    color: red;
+  }
+  &.greenText {
+    color: green;
+  }
 }
 .wrapper {
   max-height: 80vh;
@@ -85,7 +89,7 @@ export default {
 .chart-wrapper {
   width: 100% !important;
   position: relative;
-    border: 1px solid;
+  border: 1px solid;
   padding: 10px;
   margin-top: 2em;
   box-shadow: 5px 10px 8px 10px #888888;

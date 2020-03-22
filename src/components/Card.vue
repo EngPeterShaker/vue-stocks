@@ -2,7 +2,10 @@
   <v-card class="mx-auto my-4 px-4" max-width="344" outlined>
     <v-row align="center">
       <v-col class="display-3" cols="6">
-        <p class="close_text">{{item['4. close']}}</p>
+        <p
+        :class="classObject">
+        {{item['4. close']}}
+        </p>
       </v-col>
       <v-col class="display-3" cols="6">
         <v-list-item three-line>
@@ -25,6 +28,18 @@ export default {
     item: {
       type: Object
     }
+  },
+  computed: {
+  classObject: function () {
+    return {
+      'close_text': true,
+      'redText': this.item['4. close'] > this.item['1. open'],
+      'greenText': this.item['4. close'] < this.item['1. open'],
+    }
   }
+}
 };
 </script>
+<style scoped>
+
+</style>
