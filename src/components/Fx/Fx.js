@@ -1,26 +1,11 @@
-<template>
-  <div>
-    <h1>{{ this.duration }}</h1>
-    <v-container class="grey lighten-5">
-      <v-row class="wrapper">
-        <Card v-for="(item, itemKey) in FxData" :item="item" :key="itemKey" />
-      </v-row>
-      <v-row>
-        <div class="chart-wrapper">
-          <highcharts :options="chartOptions"></highcharts>
-        </div>
-      </v-row>
-    </v-container>
-  </div>
-</template>
-<script>
-import { Chart } from "highcharts-vue";
-import Card from "./Card";
 
-// import axios from "axios";
+import { Chart } from "highcharts-vue";
+import Card from "../Card/Card.vue";
+
+
 export default {
   name: "Fx",
-  data: function() {
+  data: function () {
     return {
       duration: "Stocks time Series FX (1min)"
     };
@@ -63,4 +48,3 @@ export default {
     Card
   }
 };
-</script>

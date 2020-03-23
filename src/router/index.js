@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
-import Fx from "../components/Fx.vue";
-import Stocks from "../components/Stocks.vue";
+import Fx from "../components/Fx/Fx.vue";
+import Stocks from "../components/Stocks/Stocks.vue";
 
 Vue.use(VueRouter)
 
